@@ -14,25 +14,34 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.SoftAssert;
 import com.w2a.base.TestBase;
 
-public class ScrollPage extends TestBase{
+public class iFramePage extends TestBase{
 
 	WebDriverWait wait;
-	Actions actions = new Actions(driver);
-
-	public void getScrollDownToMouseHover() throws InterruptedException {
-		
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("window.scroll(0,1200)");
-	
-	}
 	
 	public void getScrollDownToIFrame() {
 
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("window.scroll(0,1300)");
+		js.executeScript("window.scroll(0,1500)");
 	
 	}
 	
+	public void getswitchToIFrame() {
+		
+		WebElement path = driver.findElement(By.xpath("//iframe[@id='courses-iframe']"));
+		driver.switchTo().frame(path);
+
+	}
+	public void getScrollDownWithInIFrame() {
+
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scroll(0,100)");
+	
+	}
+	
+	public void getClickOnIframeLogin() {
+	
+		driver.findElement(By.xpath("//*[contains(text(),'Login')]")).click();
+	}
 	
 	
 	
